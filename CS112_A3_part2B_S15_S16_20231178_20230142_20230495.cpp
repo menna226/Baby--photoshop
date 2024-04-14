@@ -864,7 +864,7 @@ int main(){
 
             case 18:
                 delete current; // Exit the program
-                cout << "Thank you for using Baby Photoshop for Image Processing.";
+                cout << "Thank you for using Baby Photoshop for Image Processing.\n";
                 cout << "*********************************************************";
                 break;
 
