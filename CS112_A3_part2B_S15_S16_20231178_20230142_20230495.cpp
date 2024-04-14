@@ -778,6 +778,7 @@ int main(){
         cout << "16- Filter: Infrared image.\n";
         cout << "17- save an image.\n";
         cout << "18-Exit.\n";
+        cout << " >> ";
         cin >> option;
 
         Image *img = 0;
@@ -864,6 +865,7 @@ int main(){
             case 18:
                 delete current; // Exit the program
                 cout << "Thank you for using Baby Photoshop for Image Processing.";
+                cout << "*********************************************************";
                 break;
 
             default:
