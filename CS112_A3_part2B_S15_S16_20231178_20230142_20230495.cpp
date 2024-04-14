@@ -619,18 +619,18 @@ void merge_driver(Image *image) {
     Image* img1 = image;
     Image* img2 = nullptr;
     string filename2;
-    bool validFile2 = false;
     int mergeOption = 0;
 
     // Load second image
-    while (!validFile2) {
+    while (true) {
         cout << "Enter the full path to the second image file: ";
+        cin >> ws;
         getline(cin, filename2); // Allowing spaces in file paths
 
         try {
             img2 = new Image(filename2);
             cout << "Second image loaded successfully." << endl;
-            validFile2 = true; // Set to true to exit the loop
+            break;
         } catch (invalid_argument& e) {
             cerr << e.what() << endl; // Display the error message
         }
@@ -661,6 +661,7 @@ void merge_driver(Image *image) {
     // Free memory of images
     delete img1;
     delete img2;
+    *image = *merged;
     delete merged;
 }
 // Function to perform edge detection using the Sobel operator
