@@ -528,16 +528,16 @@ void resize_driver(Image *image) {
     } else if (choice == '2') {
         // Resize by ratio
         float ratio;
-        // Loop until the user enters a valid ratio (number)
+        // Loop until the user enters a valid ratio within the range (0 to 10)
         do {
-            cout << "Enter the resizing ratio (0 for no change): ";
+            cout << "Enter the resizing ratio (between 0 and 10, 0 for no change): ";
             cin >> ratio;
-            if (cin.fail() || ratio <= 0) {
-                cout << "Invalid input. Please enter a valid number greater than 0." << endl;
+            if (cin.fail() || ratio < 0 || ratio > 10) {
+                cout << "Invalid input. Please enter a valid number between 0 and 10." << endl;
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
             }
-        } while (ratio <= 0);
+        } while (ratio < 0 || ratio > 10);
 
         int new_width = static_cast<int>(image->width * ratio);
         int new_height = static_cast<int>(image->height * ratio);
@@ -877,4 +877,4 @@ int main(){
 }
 
 
-// our repo on githup: https://github.com/menna226/Assignment-3-
+// our repo on githup: https://github.com/menna226/Assignment-3
