@@ -455,6 +455,7 @@ void cropping_driver(Image *image) {
             }
         }
     }
+    *image = cropped_image;
 }
 // Function to resize the image
 void resizeImage(Image& image, int new_width, int new_height) {
